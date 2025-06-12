@@ -1,4 +1,119 @@
-What does AI think the purpose of this program/Captcha?
+Captcha - Clicks Per Second Bot Checker (CPS)
+
+Creator/Programmer: Aeolus Archangel
+Tools/resources used: VScode, W3School, stackoverflow, GIMP 3.1, Audacity, DaVinci Resolve, FreeP!x, Pixabay, NoobNotes.net
+
+AI Disclaimer - Have only used AI for these things:
+    Within VScode;
+    - For inital confetti code, using Javascript, HTML & CSS
+    - Created its unique annoying short melody using the Piano array - Piano['c','d'...]
+    - General debugging, optimising rarely used features/variables and comments/spell check within VScode
+    - Asking it for; purpose of the program, would a bot complete it? and any copryight issues due to single note melodies from copyrighted songs
+
+Premise / Idea
+    A captcha to detect how fast a user/bot is clicking from one high number(Total) and how long it takes to reach a target number(Target).
+
+    To complete the captcha, a user/bot needs to click on the total(bottom number shown) which contains the highest number and match the target number. Each click will lower the total number. This counts as 1 game. 
+
+    Depending on the difficulty, 0 = custom, 1 = Easy, 2 = Medium and 3 = Hard. Each difficulty increases the amount of games needed to complete the captcha. As well as other hidden but noticeable variables (See Difficulty for more details).
+
+    Additionally, once a game has been completed, if the users/bots CPS is higher than a certain threshold ie 4-6. It will show the 'Bot detected' screen, along with a countdown. 10s as default, once the countdown reches 0s, it will reset the captcha to the start.
+
+    Each successful game will be indicated by a greenbar, which will be loading until it reaches a randomised number but not higher than 100. The user will not be able to continue the next game until the greenbar has stopped. A blue circle loading icon is visible until user interaction and variables/visuals have been updated/completed.
+
+    If all games have been completed and CPS is still under the threshold. The user is rewarded with a confetti animation. Once all confetti has settled, the user/bot has completed the captcha.
+
+Features
+    - CPS Checker 
+    - Toggle - Seasonal/Pride bars - Halloween, Winter Holiday and Rainbow pride progress bars - Test code change | month = 5; or 9; or 11;
+    - Progress bar - randomised to not show obvious game length
+    - Target number is randomly skewed & blurred each game
+    - Randomised numbers each game - Target & Total
+    - 3 set difficulties and a custom difficulty
+    - Toggle random amount of games to be completed - RndmGame = true;
+    - F5 to refersh page is DISABLED
+    - Confetti animation upon completing captcha
+    - secret key effects / w i n / q / s / b / r
+    - Commenting for better understanding of the captcha & code
+    - Silly sounds - change | sillySounds = True; line 345 - capthca.html
+        - Random piano notes will play - each game has an 80% for the effective
+        - Each piano note played will show up in the top left corner
+        - 20% for a song/melody to play. From which will play from 6 melodies. Each have 16.66% chance to play
+            1 - Never Gonna Give you up
+            2 - Happy Birthday
+            3 - If your happy and you know it clap your hands
+            4 - AI written melody - designed to be annoying
+            5 - Here comes the Sun - Beatles
+            6 - Baby Shark - For max annoyance
+
+Secrets?
+    - 6 Different songs
+    - Different key press effects;
+        - w i n > In specific order to win the captcha
+        - q > cycles the target numbers blurre
+        - s > Toggles sillySounds on/off - off by default - Unless hard difficulty is set to 3
+        - b > Test function to show the bot detect screen
+        - r > Test function - resets the current game
+    - NaNs - Default text before countdown begins on bot detected screen
+    - Matrix effect has 3 distinct words (2 references to KitBoga) from the 0s & 1s that can be converted: https://www.rapidtables.com/convert/number/ascii-to-binary.html-->
+        1 - 01001011011010010111010001100010011011110110011101100001 = 
+        2 - 01000001011001010110111101101100011101010111001100100000010000010111001001100011011010000110000101101110011001110110010101101100 = 
+        3 - 0101001101110000011011110110111001110011011011110111001001100101011001000010000001100010011110010010000001000011011100100110111101110111010100000111001001101111 = 
+
+Difficulty
+    - There are 4 difficulties that will directly effect game length, time to complete and how easy/hard it is to trigger the 'bot detected' screen.
+   
+    - To change difficulty, change the variable 'difficulty' to either; 0 for Custom, 1 for Easy, 2 for Medium and 3 for Hard.
+
+Variables used for difficulty:
+
+Custom difficulty = 0 - Change these values in captcha.html - from line 333 to 346 
+      IHighest = 50;            Highest possible number the Total can be. Higher is more difficult.
+      Ilowest = 10;             Lowest possible number for the Target. Lower is more difficult.
+      Irange = 20;              Minimum range between Total and Target. Higher is more difficult.           
+      IGame = 4;                The amount of games to complete before completeing the captcha. Higher takes longer.
+      Mblur = 15;               Changes the highest possible blur of the target number. 20px is highest legibility before becoming mush.
+      barSpeed = 100;           The speed of the progress bar. Lower value, bar speed updates quicker.
+      MaxCPS = 7.5;             The clicks per second threshold. Lower is more difficult.
+      Ctimer = 10;              Countodown timer in seconds left on the 'Bot Detected' screen. Higher takes longer.
+      BTimeout = 1000;          Amount of time in milisceonds, forced to wait after the countdown has finished. Higher takes longer.
+      sillySounds = true;       Toggles the sounds/sfx.
+
+Default Set difficulty values - In function 'getdifficulty();' Line 710
+
+    Easy = 1
+      IHighest = 15;
+      Ilowest = 5;
+      Irange = 5;
+      IGame = 2;
+      Mblur = 5;
+      barSpeed = 100;
+      MaxCPS = 7.5;
+      Ctimer = 10;
+
+    Medium = 2
+      IHighest = 20;
+      Ilowest = 15;
+      Irange = 10;
+      IGame = 3;
+      Mblur = 10;
+      barSpeed = 150;
+      MaxCPS = 6;
+      Ctimer = 15;
+
+    Hard = 3
+      IHighest = 50;
+      Ilowest = 10;
+      Irange = 25;
+      IGame = 4;
+      Mblur = 15;
+      barSpeed = 200;
+      MaxCPS = 4;
+      Ctimer = 20;
+      sillySounds = true;
+
+Aeolus: "What does AI think the purpose of this program/Captcha is?"
+AI RESPONSE: Chatgpt 4.
 
 "This program is a web-based CAPTCHA game designed to distinguish humans from bots by requiring the user to complete a series of interactive challenges:
 
@@ -11,8 +126,7 @@ What does AI think the purpose of this program/Captcha?
 
 Overall, it is a playful, interactive CAPTCHA that uses both timing and user interaction to prevent automated completion."
 
-
-Would a computer be able to complete this captcha?
+Aeolus: "Would a computer be able to complete this captcha?"
 AI RESPONSE: Chatgpt 4.1
 
     "A typical computer program or bot would have difficulty completing this CAPTCHA as intended, because:
@@ -25,7 +139,7 @@ AI RESPONSE: Chatgpt 4.1
     However, a sophisticated bot that mimics human timing, parses the DOM, and simulates mouse clicks at a realistic speed could potentially solve it. But for most automated scripts and bots, this CAPTCHA would be effective."
 
     Notes derived from copyrighted music:
-    CAN ALWAYS REMOVE THE SONGS BEING PLAYED by changing: Line 543  if (m <= 0.2) to if (m <= 0)
+    CAN ALWAYS REMOVE THE SONGS BEING PLAYED by changing: Line ???  if (m <= 0.2) to if (m <= 0)
     This will then only play random notes.
 
 Copyright issues?
@@ -43,3 +157,6 @@ AI RESPONSE: Chatgpt 4.1
     - The code itself does **not** contain copyright music.
     - The note arrays reference melodies from copyrighted songs, but only as short, user-triggered note sequences.
     - For personal or educational use, this is generally fine. For public/commercial use, consider using only original or public domain melodies.
+
+Aeolus: "If you had a dog, would you kiss it?"
+AI RESPONSE: Chatgpt 4.1 - refused to comment
