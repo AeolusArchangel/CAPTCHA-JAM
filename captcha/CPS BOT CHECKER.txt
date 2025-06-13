@@ -1,7 +1,7 @@
 Captcha - Clicks Per Second Bot Checker (CPS)
 
 Creator/Programmer: Aeolus Archangel
-Tools/resources used: VScode, W3School, stackoverflow, GIMP 3.1, Audacity, DaVinci Resolve, FreeP!x, Pixabay, NoobNotes.net
+Tools/resources used: VScode, W3School, stackoverflow, GIMP 3.0.4, Audacity, DaVinci Resolve, FreeP!x, Pixabay, NoobNotes.net
 
 AI Disclaimer - Have only used AI for these things:
     Within VScode;
@@ -23,6 +23,11 @@ Premise / Idea
 
     If all games have been completed and CPS is still under the threshold. The user is rewarded with a confetti animation. Once all confetti has settled, the user/bot has completed the captcha.
 
+Time to complete with 0 mistakes;
+    Easy = 25s + any mistakes 10s
+    Medium = 50s + any mistakes 15s
+    Hard = 2min 45s + any mistakes 20s
+
 Features
     - CPS Checker 
     - Toggle - Seasonal/Pride bars - Halloween, Winter Holiday and Rainbow pride progress bars - Test code change | month = 5; or 9; or 11;
@@ -35,7 +40,9 @@ Features
     - Confetti animation upon completing captcha
     - secret key effects / w i n / q / s / b / r
     - Commenting for better understanding of the captcha & code
-    - Silly sounds - change | sillySounds = True; line 345 - capthca.html
+    - Silly sounds - change | sillySounds = True; line 345 - captcha.html
+        - Old windows error sound - when bot detected screen appears
+        - Dial up sfx - when bot detected screen appears
         - Random piano notes will play - each game has an 80% for the effective
         - Each piano note played will show up in the top left corner
         - 20% for a song/melody to play. From which will play from 6 melodies. Each have 16.66% chance to play
@@ -53,7 +60,7 @@ Secrets?
         - q > cycles the target numbers blurre
         - s > Toggles sillySounds on/off - off by default - Unless hard difficulty is set to 3
         - b > Test function to show the bot detect screen
-        - r > Test function - resets the current game
+        - r > Test function - resets the entire captcha
     - NaNs - Default text before countdown begins on bot detected screen
     - Matrix effect has 3 distinct words (2 references to KitBoga) from the 0s & 1s that can be converted: https://www.rapidtables.com/convert/number/ascii-to-binary.html-->
         1 - 01001011011010010111010001100010011011110110011101100001 = 
@@ -117,14 +124,14 @@ AI RESPONSE: Chatgpt 4.
 
 "This program is a web-based CAPTCHA game designed to distinguish humans from bots by requiring the user to complete a series of interactive challenges:
 
-- **Main Mechanic:** The user must click a button to reduce a displayed number (the "total") down to match a randomly chosen "target" number. The numbers and the number of games required are randomized for each session.
-- **Anti-bot Features:** The program measures the user's click speed (CPS). If the user clicks too quickly (above a set threshold), a "bot detected" screen appears and the game resets after a countdown.
-- **Sound Effects:** Optional "silly sounds" can be toggled, playing random piano notes or short melodies on each click.
-- **Visual Effects:** The target number may be skewed or blurred for added difficulty, and a progress bar tracks the user's progress through the required games.
-- **Easter Egg:** Typing "win" on the keyboard instantly completes the CAPTCHA.
-- **Accessibility:** The program disables page refresh (F5) and includes test/debug features for development.
+    - **Main Mechanic:** The user must click a button to reduce a displayed number (the "total") down to match a randomly chosen "target" number. The numbers and the number of games required are randomized for each session.
+    - **Anti-bot Features:** The program measures the user's click speed (CPS). If the user clicks too quickly (above a set threshold), a "bot detected" screen appears and the game resets after a countdown.
+    - **Sound Effects:** Optional "silly sounds" can be toggled, playing random piano notes or short melodies on each click.
+    - **Visual Effects:** The target number may be skewed or blurred for added difficulty, and a progress bar tracks the user's progress through the required games.
+    - **Easter Egg:** Typing "win" on the keyboard instantly completes the CAPTCHA.
+    - **Accessibility:** The program disables page refresh (F5) and includes test/debug features for development.
 
-Overall, it is a playful, interactive CAPTCHA that uses both timing and user interaction to prevent automated completion."
+    Overall, it is a playful, interactive CAPTCHA that uses both timing and user interaction to prevent automated completion."
 
 Aeolus: "Would a computer be able to complete this captcha?"
 AI RESPONSE: Chatgpt 4.1
@@ -138,9 +145,9 @@ AI RESPONSE: Chatgpt 4.1
 
     However, a sophisticated bot that mimics human timing, parses the DOM, and simulates mouse clicks at a realistic speed could potentially solve it. But for most automated scripts and bots, this CAPTCHA would be effective."
 
-    Notes derived from copyrighted music:
-    CAN ALWAYS REMOVE THE SONGS BEING PLAYED by changing: Line ???  if (m <= 0.2) to if (m <= 0)
-    This will then only play random notes.
+Notes derived from copyrighted music:
+CAN ALWAYS REMOVE THE SONGS BEING PLAYED by changing: Line ???  if (m <= 0.2) to if (m <= 0)
+This will then only play random notes.
 
 Copyright issues?
 AI RESPONSE: Chatgpt 4.1

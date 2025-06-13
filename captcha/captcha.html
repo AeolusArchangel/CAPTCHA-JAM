@@ -11,18 +11,18 @@
     <audio id='sfxError' src='sfx/error.mp3' type='audio/mpeg'></audio>
     <audio id='sfxWin' src='sfx/success.mp3' type='audio/mpeg'></audio>
     <audio id="sfxBot" src="sfx/dialup.mp3" type="audio/mpeg"></audio>
-    <audio id='C'  src='sfx/piano/_c.mp3' type='audio/mpeg'></audio>
-    <audio id='C2' src='sfx/piano/_c2.mp3' type='audio/mpeg'></audio>
-    <audio id='D'  src='sfx/piano/_d.mp3' type='audio/mpeg'></audio>
-    <audio id='D2' src='sfx/piano/_d2.mp3' type='audio/mpeg'></audio>
-    <audio id='E'  src='sfx/piano/_e.mp3' type='audio/mpeg'></audio>
-    <audio id='F'  src='sfx/piano/_f.mp3' type='audio/mpeg'></audio>
-    <audio id='F2' src='sfx/piano/_f2.mp3' type='audio/mpeg'></audio>
-    <audio id='G'  src='sfx/piano/_g.mp3' type='audio/mpeg'></audio>
-    <audio id='G2' src='sfx/piano/_g2.mp3' type='audio/mpeg'></audio>
-    <audio id='A'  src='sfx/piano/_a.mp3' type='audio/mpeg'></audio>
-    <audio id='A2' src='sfx/piano/_a2.mp3' type='audio/mpeg'></audio>
-    <audio id='B'  src='sfx/piano/_b.mp3' type='audio/mpeg'></audio>
+    <audio id='C'  src='sfx/piano/c.mp3' type='audio/mpeg'></audio>
+    <audio id='C2' src='sfx/piano/c2.mp3' type='audio/mpeg'></audio>
+    <audio id='D'  src='sfx/piano/d.mp3' type='audio/mpeg'></audio>
+    <audio id='D2' src='sfx/piano/d2.mp3' type='audio/mpeg'></audio>
+    <audio id='E'  src='sfx/piano/e.mp3' type='audio/mpeg'></audio>
+    <audio id='F'  src='sfx/piano/f.mp3' type='audio/mpeg'></audio>
+    <audio id='F2' src='sfx/piano/f2.mp3' type='audio/mpeg'></audio>
+    <audio id='G'  src='sfx/piano/g.mp3' type='audio/mpeg'></audio>
+    <audio id='G2' src='sfx/piano/g2.mp3' type='audio/mpeg'></audio>
+    <audio id='A'  src='sfx/piano/a.mp3' type='audio/mpeg'></audio>
+    <audio id='A2' src='sfx/piano/a2.mp3' type='audio/mpeg'></audio>
+    <audio id='B'  src='sfx/piano/b.mp3' type='audio/mpeg'></audio>
 <style type='text/css'>
     html,
     body {
@@ -228,13 +228,13 @@
       top: 0%;
     }
     #notes{
-      background: rgb(229, 229, 229);
+      background: rgb(30, 30, 30);
       background-image: url('img/note.png');
-      background-blend-mode:difference;
+      background-blend-mode: lighten;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 25px 25px;
-      color: #121212;
+      color: #ffffff;
       height: 30px;
       Width: 40px;
       font-family: "Montserrat", sans-serif;
@@ -250,16 +250,16 @@
       left: 18px;
       padding: 1px;
       border-radius: 6px;
-      border: 2px outset rgb(0, 0, 0);
+      border: 2px outset rgb(255, 255, 255);
     }
     .inner-curve {
       --r: 0px; /* the radius */
       --s: 10px; /* size of inner curve */
       --x: 14px; /* horizontal offset (no percentage) */
-      --y: 16px; /* vertical offset (no percentage) */
+      --y: 17px; /* vertical offset (no percentage) */
 
       position: absolute;
-      bottom: -1px;
+      bottom: 0px;
       z-index: 20;
       
       width: 34px;
@@ -285,7 +285,7 @@
     }
     #curve-right{
       display: block;
-      right: 0px;
+      right: -1px;
         border-radius: var(--r);
       --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
       --_g:conic-gradient(at var(--r) var(--r),#000 75%,#0000 0);
@@ -323,9 +323,9 @@
     <div class="inner-curve" id ="curve-left"></div>
     <div class="inner-curve" id ="curve-right"></div>
   </div>
- <!-- TO DO / IDEAS:
-      - Update TXT
--->
+ <!-- TO DO / IDEAS: 
+  - Change difficulty through keyboard press 
+ -->
 <script type='text/javascript'>
   // Difficulty - 0 = Custom (Edit below not in the SWITCH case), 1 = Easy , 2 = Med, 3 = Hard
     let difficulty = 3;                     // Set difficulty 
@@ -349,7 +349,7 @@
     let target = 0;                          // Target number to 'win'
     let total = 0;                          // Total clicks remaining to target
     let game = 0;                          // Games finished to win | counter
-    let RGame = 0;                        // Random
+    let RGame = 0;                        // Stores randomises game amount
     let highestNumber = 0;               // Highest no. to randomise
     let lowestNumber = 0;               // Lowest no. to randomise
     let range = 0;                     // minimum Range between highest & Lowest
@@ -365,7 +365,7 @@
     let m = 0;               // Stores a random value for percentage if a song will play
     let m2 = 0;             // Stores a random value for which song should play
 
-    // Audio SFX - Note melodies from https://noobnotes.net/ , notes recorded from https://www.musicca.com/piano?2b.3c and edited with Audacity
+    // Audio SFX - Note melodies from https://noobnotes.net/
     let SRCString = 'C';    // Stores custom ID source for the random piano notes
     const piano = ['C','C2','D','D2','E','F','F2','G','G2','A','A2','B']; // 12 Note for 1 Octave
     const pianoAstley = ['C','D','F','D','G','G','F','E','D','C','D','F','D','F','G','E','C','C','G','F']; // 20 Notes
